@@ -577,5 +577,48 @@ int main()
           getch();
         }
       }
+
+      ////////////////////////////////////////////////////////////////
+      // TECHNICIAN SECTION
+      ////////////////////////////////////////////////////////////////
+    }
+    else if (mainChoice == 2)
+    {
+
+      bool techLoggedIn = false;
+      int loggedTechIdx = -1;
+
+      for (int i = 0; i < 3; i++)
+      {
+        system("cls");
+        cout << "\nTECHNICIAN LOGIN - Attempt " << i + 1 << " of 3\n\n";
+        string username, password;
+        cout << "Username: ";
+        cin >> username;
+        cout << "Password: ";
+        cin >> password;
+
+        for (int j = 0; j < techCount; j++)
+        {
+          if (techUsername[j] == username && password == "123")
+          {
+            techLoggedIn = true;
+            loggedTechIdx = j;
+            break;
+          }
+        }
+
+        if (techLoggedIn)
+        {
+          cout << "\nWelcome, " << techName[loggedTechIdx] << "!\n";
+          getch();
+          break;
+        }
+        else
+        {
+          cout << "\nInvalid credentials!\n";
+          getch();
+        }
+      }
     }
   }
