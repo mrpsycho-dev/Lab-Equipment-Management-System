@@ -644,6 +644,69 @@ int main()
     Choose option: 
 
 )";
+          int techOption;
+          cin >> techOption;
+
+          ////////////////////////////////////////////////////////////////
+          // OPTION 1 - VIEW AVAILABLE EQUIPMENT
+          ////////////////////////////////////////////////////////////////
+          if (techOption == 1)
+          {
+            system("cls");
+            cout << "\nAVAILABLE EQUIPMENT\n\n";
+            cout << "ID\tName\t\tCategory\tAvailable\tCondition\n";
+            cout << "------------------------------------------------------------------------\n";
+
+            bool anyAvail = false;
+            for (int i = 0; i < equipmentCount; i++)
+            {
+              if (equipmentAvail[i] > 0)
+              {
+                cout << equipmentId[i] << "\t"
+                     << equipmentName[i] << "\t\t"
+                     << equipmentCat[i] << "\t"
+                     << equipmentAvail[i] << "\t\t"
+                     << equipmentCond[i] << "\n";
+                anyAvail = true;
+              }
+            }
+            if (!anyAvail)
+              cout << "No equipment available right now.\n";
+          }
+
+          ////////////////////////////////////////////////////////////////
+          // OPTION 2 - SEARCH EQUIPMENT
+          ////////////////////////////////////////////////////////////////
+          else if (techOption == 2)
+          {
+            system("cls");
+            cout << "\nSEARCH EQUIPMENT\n\n";
+            cout << "Enter name: ";
+            string searchName;
+            cin >> searchName;
+
+            bool found = false;
+            cout << "\nID\tName\t\tCategory\tAvail\tCondition\n";
+            cout << "------------------------------------------------------------\n";
+            for (int i = 0; i < equipmentCount; i++)
+            {
+              if (equipmentName[i] == searchName)
+              {
+                cout << equipmentId[i] << "\t"
+                     << equipmentName[i] << "\t\t"
+                     << equipmentCat[i] << "\t"
+                     << equipmentAvail[i] << "\t"
+                     << equipmentCond[i] << "\n";
+                found = true;
+              }
+            }
+            if (!found)
+              cout << "No equipment found!\n";
+          }
+
+          ////////////////////////////////////////////////////////////////
+          // OPTION 3 - BORROW EQUIPMENT
+          ////////////////////////////////////////////////////////////////
         }
       }
     }
