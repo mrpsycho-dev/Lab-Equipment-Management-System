@@ -67,5 +67,70 @@ int main()
     Choose option: 
 
 )";
+    int mainChoice;
+    cin >> mainChoice;
+
+    ////////////////////////////////////////////////////////////////
+    // ADMIN SECTION
+    ////////////////////////////////////////////////////////////////
+    if (mainChoice == 1)
+    {
+
+      bool adminLoggedIn = false;
+
+      for (int i = 0; i < 3; i++)
+      {
+        system("cls");
+        cout << "\nADMIN LOGIN - Attempt " << i + 1 << " of 3\n\n";
+        string username, password;
+        cout << "Username: ";
+        cin >> username;
+        cout << "Password: ";
+        cin >> password;
+
+        if (username == "admin" && password == "123")
+        {
+          adminLoggedIn = true;
+          cout << "\nLogin Successful!\n";
+          getch();
+          break;
+        }
+        else
+        {
+          cout << "\nInvalid credentials!\n";
+          getch();
+        }
+      }
+
+      if (adminLoggedIn)
+      {
+        while (true)
+        {
+          system("cls");
+          cout
+              << R"(
+
+    |===========================================================|
+    |                   ADMIN DASHBOARD                         |
+    |===========================================================|
+    |   [1]   Add Equipment                                     |
+    |   [2]   View All Equipment                                |
+    |   [3]   Search Equipment                                  |
+    |   [4]   Update Equipment                                  |
+    |   [5]   Delete Equipment                                  |
+    |   [6]   View Borrowing Records                            |
+    |   [7]   Sort Equipment                                    |
+    |   [8]   View Equipment by Category                        |
+    |   [9]   Manage Technicians                                |
+    |  [10]   Activity History                                  |
+    |  [11]   Logout                                            |
+    |===========================================================|
+    Choose option: 
+
+)";
+          int adminChoice;
+          cin >> adminChoice;
+        }
+      }
+    }
   }
-}
