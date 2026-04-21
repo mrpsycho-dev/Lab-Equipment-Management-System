@@ -847,6 +847,124 @@ int main()
           ////////////////////////////////////////////////////////////////
           // OPTION 6 - VIEW ACTIVE BORROWINGS
           ////////////////////////////////////////////////////////////////
+          else if (techOption == 6)
+          {
+            system("cls");
+            cout << "\nACTIVE BORROWINGS (Not Yet Returned)\n\n";
+            cout << "ID\tEquipment\t\tBorrower\tRoll\t\tDue Date\n";
+            cout << "------------------------------------------------------------------------\n";
+            bool anyActive = false;
+            for (int i = 0; i < borrowCount; i++)
+            {
+              if (borrowStatus[i] == "Borrowed")
+              {
+                cout << borrowId[i] << "\t"
+                     << borrowEquipName[i] << "\t\t"
+                     << borrowerName[i] << "\t"
+                     << borrowerRoll[i] << "\t\t"
+                     << returnDate[i] << "\n";
+                anyActive = true;
+              }
+            }
+            if (!anyActive)
+              cout << "No active borrowings at the moment.\n";
+          }
+
+          ////////////////////////////////////////////////////////////////
+          // OPTION 7 - EQUIPMENT DETAILS with Ascii style art
+          ////////////////////////////////////////////////////////////////
+          else if (techOption == 7)
+          {
+            system("cls");
+            cout << "\nEQUIPMENT DETAILS\n\n";
+            cout << "Enter equipment ID: ";
+            int detailId;
+            cin >> detailId;
+
+            bool found = false;
+            for (int i = 0; i < equipmentCount; i++)
+            {
+              if (equipmentId[i] == detailId)
+              {
+                found = true;
+                system("cls");
+
+                if (equipmentCat[i] == "Biology\t")
+                {
+                  cout << R"(
+            ,---.
+           (     )
+            `---'
+           /     \
+          |  o   o|        BIOLOGY EQUIPMENT
+           \  ---/
+            |||||
+           /|||||\
+          /__|||||__\
+)";
+                }
+                else if (equipmentCat[i] == "Electronics")
+                {
+                  cout << R"(
+         _______________
+        |    DISPLAY    |
+        |  ___________  |
+        | |           | |     ELECTRONICS EQUIPMENT
+        | |   ~~~~    | |
+        | |___________| |
+        |  [o] [o] [o]  |
+        |_______________|
+)";
+                }
+                else if (equipmentCat[i] == "Chemistry")
+                {
+                  cout << R"(
+              | |
+              | |
+             /   \
+            /     \         CHEMISTRY EQUIPMENT
+           |       |
+        ___| _____ |___
+       |   |_______|   |
+       |_______________|
+        *   *   *   *
+)";
+                }
+                else if (equipmentCat[i] == "Physics")
+                {
+                  cout << R"(
+       ________________________
+      |                        |
+      |   PHYSICS EQUIPMENT    |
+      |     O         O        |
+      |    /|\       /|\       |
+      |   / | \     / | \      |
+      |__/__|__\___/__|__\_____|
+)";
+                }
+                else
+                {
+                  cout << "\n[GENERAL LAB EQUIPMENT]\n";
+                }
+
+                cout << "\n";
+                cout << "ID\t\t: " << equipmentId[i] << "\n";
+                cout << "Name\t\t: " << equipmentName[i] << "\n";
+                cout << "Category\t: " << equipmentCat[i] << "\n";
+                cout << "Quantity\t: " << equipmentQty[i] << "\n";
+                cout << "Available\t: " << equipmentAvail[i] << "\n";
+                cout << "Condition\t: " << equipmentCond[i] << "\n";
+                cout << "Price\t\t: PKR " << equipmentPrice[i] << "\n";
+                break;
+              }
+            }
+            if (!found)
+              cout << "Equipment not found!\n";
+          }
+
+          ////////////////////////////////////////////////////////////////
+          // OPTION 8 - BORROWING HISTORY
+          ////////////////////////////////////////////////////////////////
         }
       }
     }
