@@ -965,7 +965,48 @@ int main()
           ////////////////////////////////////////////////////////////////
           // OPTION 8 - BORROWING HISTORY
           ////////////////////////////////////////////////////////////////
+          else if (techOption == 8)
+          {
+            system("cls");
+            cout << "\nBORROWING HISTORY\n\n";
+            cout << "ID\tEquipment\t\tBorrower\tDate\t\tStatus\n";
+            cout << "------------------------------------------------------------------------\n";
+            if (borrowCount == 0)
+            {
+              cout << "No records yet.\n";
+            }
+            for (int i = 0; i < borrowCount; i++)
+            {
+              cout << borrowId[i] << "\t"
+                   << borrowEquipName[i] << "\t\t"
+                   << borrowerName[i] << "\t"
+                   << borrowDate[i] << "\t"
+                   << borrowStatus[i] << "\n";
+            }
+
+            ////////////////////////////////////////////////////////////////
+            // OPTION 9 - LOGOUT
+            ////////////////////////////////////////////////////////////////
+          }
+          else if (techOption == 9)
+          {
+            cout << "\nLogging out...\n";
+            getch();
+            break;
+          }
+          else
+          {
+            cout << "\nInvalid option!\n";
+          }
+
+          cout << "\nPress any key to continue...";
+          getch();
         }
       }
+
+      ////////////////////////////////////////////////////////////////
+      // EXIT
+      ////////////////////////////////////////////////////////////////
     }
   }
+}
