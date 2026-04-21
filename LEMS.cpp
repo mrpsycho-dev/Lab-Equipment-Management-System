@@ -427,6 +427,37 @@ int main()
             // OPTION 8 - VIEW EQUIPMENT BY CATEGORY
             ////////////////////////////////////////////////////////////////
           }
+          else if (adminChoice == 8)
+          {
+            system("cls");
+            cout << "\nVIEW EQUIPMENT BY CATEGORY\n\n";
+            cout << "Enter category (Electronics/Chemistry/Physics/Biology): ";
+            string searchCat;
+            cin >> searchCat;
+
+            bool found = false;
+            cout << "\nID\tName\t\tQty\tAvail\tCondition\tPrice\n";
+            cout << "------------------------------------------------------------------------\n";
+            for (int i = 0; i < equipmentCount; i++)
+            {
+              if (equipmentCat[i] == searchCat)
+              {
+                cout << equipmentId[i] << "\t"
+                     << equipmentName[i] << "\t\t"
+                     << equipmentQty[i] << "\t"
+                     << equipmentAvail[i] << "\t"
+                     << equipmentCond[i] << "\t\t"
+                     << equipmentPrice[i] << "\n";
+                found = true;
+              }
+            }
+            if (!found)
+              cout << "No equipment found in this category!\n";
+          }
+
+          ////////////////////////////////////////////////////////////////
+          // OPTION 9 - MANAGE TECHNICIANS
+          ////////////////////////////////////////////////////////////////
         }
       }
     }
