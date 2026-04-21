@@ -130,6 +130,36 @@ int main()
 )";
           int adminChoice;
           cin >> adminChoice;
+
+          ////////////////////////////////////////////////////////////////
+          // OPTION 1 - ADD EQUIPMENT
+          ////////////////////////////////////////////////////////////////
+          if (adminChoice == 1)
+          {
+            system("cls");
+            cout << "\nADD NEW EQUIPMENT\n\n";
+
+            cout << "Name: ";
+            cin >> equipmentName[equipmentCount];
+            cout << "Category (Electronics/Chemistry/Physics/Biology): ";
+            cin >> equipmentCat[equipmentCount];
+            cout << "Quantity: ";
+            cin >> equipmentQty[equipmentCount];
+            equipmentAvail[equipmentCount] = equipmentQty[equipmentCount];
+            cout << "Condition (Good/Fair/Poor): ";
+            cin >> equipmentCond[equipmentCount];
+            cout << "Price (PKR): ";
+            cin >> equipmentPrice[equipmentCount];
+            equipmentId[equipmentCount] = nextEquipId++;
+
+            historyAction[historyCount] = "Added";
+            historyItem[historyCount] = equipmentName[equipmentCount];
+            historyBy[historyCount] = "Admin";
+            historyCount++;
+
+            equipmentCount++;
+            cout << "\nEquipment added successfully!\n";
+          }
         }
       }
     }
