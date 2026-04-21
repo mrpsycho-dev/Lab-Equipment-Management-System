@@ -160,6 +160,30 @@ int main()
             equipmentCount++;
             cout << "\nEquipment added successfully!\n";
           }
+          ////////////////////////////////////////////////////////////////
+          // OPTION 2 - VIEW ALL EQUIPMENT
+          ////////////////////////////////////////////////////////////////
+          else if (adminChoice == 2)
+          {
+            system("cls");
+            cout << "\nALL EQUIPMENT\n\n";
+            cout << "ID\tName\t\tCategory\tQty\tAvail\tCondition\tPrice\n";
+            cout << "----------------------------------------------------------------------------\n";
+            for (int i = 0; i < equipmentCount; i++)
+            {
+              cout << equipmentId[i] << "\t"
+                   << equipmentName[i] << "\t"
+                   << equipmentCat[i] << "\t"
+                   << equipmentQty[i] << "\t"
+                   << equipmentAvail[i] << "\t"
+                   << equipmentCond[i] << "\t\t"
+                   << equipmentPrice[i] << "\n";
+            }
+
+            ////////////////////////////////////////////////////////////////
+            // OPTION 3 - SEARCH EQUIPMENT
+            ////////////////////////////////////////////////////////////////
+          }
         }
       }
     }
