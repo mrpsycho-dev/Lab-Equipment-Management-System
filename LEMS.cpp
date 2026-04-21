@@ -458,6 +458,92 @@ int main()
           ////////////////////////////////////////////////////////////////
           // OPTION 9 - MANAGE TECHNICIANS
           ////////////////////////////////////////////////////////////////
+          else if (adminChoice == 9)
+          {
+            system("cls");
+            cout
+                << R"(
+
+    |===========================================================|
+    |                 MANAGE TECHNICIANS                        |
+    |===========================================================|
+    |   [1]   View All Technicians                              |
+    |   [2]   Add Technician                                    |
+    |   [3]   Delete Technician                                 |
+    |===========================================================|
+    Choose option: 
+
+)";
+            int techMenuChoice;
+            cin >> techMenuChoice;
+
+            if (techMenuChoice == 1)
+            {
+              system("cls");
+              cout << "\nALL TECHNICIANS\n\n";
+              cout << "No.\tName\t\tUsername\n";
+              cout << "------------------------------------\n";
+              for (int i = 0; i < techCount; i++)
+              {
+                cout << i + 1 << "\t"
+                     << techName[i] << "\t\t"
+                     << techUsername[i] << "\n";
+              }
+            }
+            else if (techMenuChoice == 2)
+            {
+              system("cls");
+              cout << "\nADD TECHNICIAN\n\n";
+              if (techCount >= 10)
+              {
+                cout << "Technician limit reached!\n";
+              }
+              else
+              {
+                cout << "Name: ";
+                cin >> techName[techCount];
+                cout << "Username: ";
+                cin >> techUsername[techCount];
+                techCount++;
+                cout << "\nTechnician added! Default password is 123.\n";
+              }
+            }
+            else if (techMenuChoice == 3)
+            {
+              system("cls");
+              cout << "\nDELETE TECHNICIAN\n\n";
+              cout << "Enter username to delete: ";
+              string delUser;
+              cin >> delUser;
+
+              bool found = false;
+              for (int i = 0; i < techCount; i++)
+              {
+                if (techUsername[i] == delUser)
+                {
+                  for (int j = i; j < techCount - 1; j++)
+                  {
+                    techName[j] = techName[j + 1];
+                    techUsername[j] = techUsername[j + 1];
+                  }
+                  techCount--;
+                  cout << "Technician deleted!\n";
+                  found = true;
+                  break;
+                }
+              }
+              if (!found)
+                cout << "Technician not found!\n";
+            }
+            else
+            {
+              cout << "Invalid option!\n";
+            }
+
+            ////////////////////////////////////////////////////////////////
+            // OPTION 10 - ACTIVITY HISTORY
+            ////////////////////////////////////////////////////////////////
+          }
         }
       }
     }
