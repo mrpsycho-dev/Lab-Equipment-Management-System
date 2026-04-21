@@ -562,6 +562,19 @@ int main()
           ////////////////////////////////////////////////////////////////
           // OPTION 11 - LOGOUT
           ////////////////////////////////////////////////////////////////
+          else if (adminChoice == 11)
+          {
+            cout << "\nLogging out...\n";
+            getch();
+            break;
+          }
+          else
+          {
+            cout << "\nInvalid option!\n";
+          }
+
+          cout << "\nPress any key to continue...";
+          getch();
         }
       }
     }
