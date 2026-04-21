@@ -47,3 +47,4 @@ int main()
   int techCount = 2;
   string techUsername[10] = {"tech1", "tech2"};
   string techName[10] = {"Dr.Sara", "Mr.Hamza"};
+}
