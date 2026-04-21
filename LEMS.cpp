@@ -769,6 +769,84 @@ int main()
           ////////////////////////////////////////////////////////////////
           // OPTION 4 - RETURN EQUIPMENT
           ////////////////////////////////////////////////////////////////
+          else if (techOption == 4)
+          {
+            system("cls");
+            cout << "\nRETURN EQUIPMENT\n\n";
+            cout << "Enter Borrow ID: ";
+            int retId;
+            cin >> retId;
+
+            bool found = false;
+            for (int i = 0; i < borrowCount; i++)
+            {
+              if (borrowId[i] == retId && borrowStatus[i] == "Borrowed")
+              {
+                found = true;
+                cout << "Equipment : " << borrowEquipName[i] << "\n";
+                cout << "Borrower  : " << borrowerName[i] << "\n";
+                cout << "Confirm return? (y/n): ";
+                char confirm;
+                cin >> confirm;
+
+                if (confirm == 'y' || confirm == 'Y')
+                {
+                  borrowStatus[i] = "Returned";
+                  for (int j = 0; j < equipmentCount; j++)
+                  {
+                    if (equipmentName[j] == borrowEquipName[i])
+                    {
+                      equipmentAvail[j]++;
+                      break;
+                    }
+                  }
+                  historyAction[historyCount] = "Returned";
+                  historyItem[historyCount] = borrowEquipName[i];
+                  historyBy[historyCount] = techName[loggedTechIdx];
+                  historyCount++;
+
+                  cout << "Equipment returned successfully!\n";
+                }
+                else
+                {
+                  cout << "Return cancelled.\n";
+                }
+                break;
+              }
+            }
+            if (!found)
+              cout << "Borrow ID not found or already returned!\n";
+          }
+
+          ////////////////////////////////////////////////////////////////
+          // OPTION 5 - MY ISSUED RECORDS
+          ////////////////////////////////////////////////////////////////
+          else if (techOption == 5)
+          {
+            system("cls");
+            cout << "\nMY ISSUED RECORDS\n";
+            cout << "Issued by: " << techName[loggedTechIdx] << "\n\n";
+            cout << "ID\tEquipment\t\tBorrower\tStatus\n";
+            cout << "------------------------------------------------------------\n";
+            bool anyRecord = false;
+            for (int i = 0; i < borrowCount; i++)
+            {
+              if (borrowIssuedBy[i] == techName[loggedTechIdx])
+              {
+                cout << borrowId[i] << "\t"
+                     << borrowEquipName[i] << "\t\t"
+                     << borrowerName[i] << "\t"
+                     << borrowStatus[i] << "\n";
+                anyRecord = true;
+              }
+            }
+            if (!anyRecord)
+              cout << "No records found.\n";
+          }
+
+          ////////////////////////////////////////////////////////////////
+          // OPTION 6 - VIEW ACTIVE BORROWINGS
+          ////////////////////////////////////////////////////////////////
         }
       }
     }
