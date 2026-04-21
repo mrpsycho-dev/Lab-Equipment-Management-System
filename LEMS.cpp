@@ -327,6 +327,106 @@ int main()
             // OPTION 6 - VIEW BORROWING RECORDS
             ////////////////////////////////////////////////////////////////
           }
+          else if (adminChoice == 6)
+          {
+            system("cls");
+            cout << "\nALL BORROWING RECORDS\n\n";
+            cout << "ID\tEquipment\t\tBorrower\tRoll\t\tStatus\n";
+            cout << "------------------------------------------------------------------------\n";
+            if (borrowCount == 0)
+            {
+              cout << "No records yet.\n";
+            }
+            for (int i = 0; i < borrowCount; i++)
+            {
+              cout << borrowId[i] << "\t"
+                   << borrowEquipName[i] << "\t\t"
+                   << borrowerName[i] << "\t"
+                   << borrowerRoll[i] << "\t\t"
+                   << borrowStatus[i] << "\n";
+            }
+
+            ////////////////////////////////////////////////////////////////
+            // OPTION 7 - SORT EQUIPMENT
+            ////////////////////////////////////////////////////////////////
+          }
+          else if (adminChoice == 7)
+          {
+            system("cls");
+            cout
+                << R"(
+
+    |===========================================================|
+    |                   SORT EQUIPMENT                          |
+    |===========================================================|
+    |   [1]   Price  - Ascending  (Lowest First)                |
+    |   [2]   Price  - Descending (Highest First)               |
+    |   [3]   Name   - A to Z                                   |
+    |   [4]   Name   - Z to A                                   |
+    |===========================================================|
+    Choose option: 
+
+)";
+            int sortChoice;
+            cin >> sortChoice;
+
+            for (int i = 0; i < equipmentCount; i++)
+            {
+              for (int j = i + 1; j < equipmentCount; j++)
+              {
+                bool doSwap = false;
+
+                if (sortChoice == 1 && equipmentPrice[i] > equipmentPrice[j])
+                  doSwap = true;
+                if (sortChoice == 2 && equipmentPrice[i] < equipmentPrice[j])
+                  doSwap = true;
+                if (sortChoice == 3 && equipmentName[i] > equipmentName[j])
+                  doSwap = true;
+                if (sortChoice == 4 && equipmentName[i] < equipmentName[j])
+                  doSwap = true;
+
+                if (doSwap)
+                {
+                  int tId = equipmentId[i];
+                  equipmentId[i] = equipmentId[j];
+                  equipmentId[j] = tId;
+                  string tName = equipmentName[i];
+                  equipmentName[i] = equipmentName[j];
+                  equipmentName[j] = tName;
+                  string tCat = equipmentCat[i];
+                  equipmentCat[i] = equipmentCat[j];
+                  equipmentCat[j] = tCat;
+                  int tQty = equipmentQty[i];
+                  equipmentQty[i] = equipmentQty[j];
+                  equipmentQty[j] = tQty;
+                  int tAvail = equipmentAvail[i];
+                  equipmentAvail[i] = equipmentAvail[j];
+                  equipmentAvail[j] = tAvail;
+                  string tCond = equipmentCond[i];
+                  equipmentCond[i] = equipmentCond[j];
+                  equipmentCond[j] = tCond;
+                  float tPrice = equipmentPrice[i];
+                  equipmentPrice[i] = equipmentPrice[j];
+                  equipmentPrice[j] = tPrice;
+                }
+              }
+            }
+
+            cout << "\nSorted! Result:\n\n";
+            cout << "ID\tName\t\tCategory\tPrice\n";
+            cout << "--------------------------------------------\n";
+            for (int i = 0; i < equipmentCount; i++)
+            {
+              cout << equipmentId[i] << "\t"
+                   << equipmentName[i] << "\t\t"
+                   << equipmentCat[i] << "\t"
+                   << equipmentPrice[i] << "\n";
+            }
+
+            ////////////////////////////////////////////////////////////////
+            // OPTION 8 - VIEW EQUIPMENT BY CATEGORY
+            ////////////////////////////////////////////////////////////////
+          }
         }
       }
     }
