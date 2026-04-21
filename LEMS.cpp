@@ -1008,5 +1008,26 @@ int main()
       // EXIT
       ////////////////////////////////////////////////////////////////
     }
+    else if (mainChoice == 3)
+    {
+      system("cls");
+      cout
+          << R"(
+
+    |===========================================================|
+    |     Thank you for using LEMS!                             |
+    |     Lab Equipment Management System                       |
+    |===========================================================|
+
+)";
+      break;
+    }
+    else
+    {
+      cout << "\nInvalid option!\n";
+      getch();
+    }
   }
+
+  return 0;
 }
