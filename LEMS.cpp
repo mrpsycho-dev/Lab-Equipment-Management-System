@@ -184,6 +184,37 @@ int main()
             // OPTION 3 - SEARCH EQUIPMENT
             ////////////////////////////////////////////////////////////////
           }
+          else if (adminChoice == 3)
+          {
+            system("cls");
+            cout << "\nSEARCH EQUIPMENT\n\n";
+            cout << "Enter name: ";
+            string searchName;
+            cin >> searchName;
+
+            bool found = false;
+            cout << "\nID\tName\t\tCategory\tAvail\tCondition\tPrice\n";
+            cout << "------------------------------------------------------------------------\n";
+            for (int i = 0; i < equipmentCount; i++)
+            {
+              if (equipmentName[i] == searchName)
+              {
+                cout << equipmentId[i] << "\t"
+                     << equipmentName[i] << "\t\t"
+                     << equipmentCat[i] << "\t"
+                     << equipmentAvail[i] << "\t"
+                     << equipmentCond[i] << "\t\t"
+                     << equipmentPrice[i] << "\n";
+                found = true;
+              }
+            }
+            if (!found)
+              cout << "No equipment found!\n";
+
+            ////////////////////////////////////////////////////////////////
+            // OPTION 4 - UPDATE EQUIPMENT
+            ////////////////////////////////////////////////////////////////
+          }
         }
       }
     }
