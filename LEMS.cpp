@@ -707,6 +707,68 @@ int main()
           ////////////////////////////////////////////////////////////////
           // OPTION 3 - BORROW EQUIPMENT
           ////////////////////////////////////////////////////////////////
+          else if (techOption == 3)
+          {
+            system("cls");
+            cout << "\nBORROW EQUIPMENT\n\n";
+            cout << "Enter equipment ID: ";
+            int borrowEquipId;
+            cin >> borrowEquipId;
+
+            bool found = false;
+            for (int i = 0; i < equipmentCount; i++)
+            {
+              if (equipmentId[i] == borrowEquipId)
+              {
+                found = true;
+                if (equipmentAvail[i] <= 0)
+                {
+                  cout << "Sorry! This equipment is not available.\n";
+                }
+                else
+                {
+                  cout << "Equipment: " << equipmentName[i] << "\n";
+                  cout << "Borrower Name: ";
+                  string bName;
+                  cin >> bName;
+                  cout << "Roll Number: ";
+                  string bRoll;
+                  cin >> bRoll;
+                  cout << "Borrow Date (DD/MM/YYYY): ";
+                  string bDate;
+                  cin >> bDate;
+                  cout << "Return Date (DD/MM/YYYY): ";
+                  string rDate;
+                  cin >> rDate;
+
+                  borrowId[borrowCount] = nextBorrowId++;
+                  borrowEquipName[borrowCount] = equipmentName[i];
+                  borrowerName[borrowCount] = bName;
+                  borrowerRoll[borrowCount] = bRoll;
+                  borrowDate[borrowCount] = bDate;
+                  returnDate[borrowCount] = rDate;
+                  borrowStatus[borrowCount] = "Borrowed";
+                  borrowIssuedBy[borrowCount] = techName[loggedTechIdx];
+                  borrowCount++;
+                  equipmentAvail[i]--;
+
+                  historyAction[historyCount] = "Borrowed";
+                  historyItem[historyCount] = equipmentName[i];
+                  historyBy[historyCount] = techName[loggedTechIdx];
+                  historyCount++;
+
+                  cout << "\nEquipment issued! Borrow ID: " << nextBorrowId - 1 << "\n";
+                }
+                break;
+              }
+            }
+            if (!found)
+              cout << "Equipment ID not found!\n";
+          }
+
+          ////////////////////////////////////////////////////////////////
+          // OPTION 4 - RETURN EQUIPMENT
+          ////////////////////////////////////////////////////////////////
         }
       }
     }
