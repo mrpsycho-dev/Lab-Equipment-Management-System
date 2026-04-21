@@ -620,5 +620,31 @@ int main()
           getch();
         }
       }
+      if (techLoggedIn)
+      {
+        while (true)
+        {
+          system("cls");
+          cout << "\nLogged in as: " << techName[loggedTechIdx] << "\n";
+          cout
+              << R"(
+    |===========================================================|
+    |              LAB TECHNICIAN DASHBOARD                     |
+    |===========================================================|
+    |   [1]   View Available Equipment                          |
+    |   [2]   Search Equipment                                  |
+    |   [3]   Borrow Equipment                                  |
+    |   [4]   Return Equipment                                  |
+    |   [5]   My Issued Records                                 |
+    |   [6]   View Active Borrowings                            |
+    |   [7]   Equipment Details + ASCII Art                     |
+    |   [8]   Borrowing History                                 |
+    |   [9]   Logout                                            |
+    |===========================================================|
+    Choose option: 
+
+)";
+        }
+      }
     }
   }
