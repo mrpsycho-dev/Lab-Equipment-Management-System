@@ -544,6 +544,24 @@ int main()
             // OPTION 10 - ACTIVITY HISTORY
             ////////////////////////////////////////////////////////////////
           }
+          else if (adminChoice == 10)
+          {
+            system("cls");
+            cout << "\nACTIVITY HISTORY\n\n";
+            if (historyCount == 0)
+            {
+              cout << "No history yet.\n";
+            }
+            for (int i = 0; i < historyCount; i++)
+            {
+              cout << i + 1 << ". [" << historyAction[i] << "] "
+                   << historyItem[i] << " by " << historyBy[i] << "\n";
+            }
+          }
+
+          ////////////////////////////////////////////////////////////////
+          // OPTION 11 - LOGOUT
+          ////////////////////////////////////////////////////////////////
         }
       }
     }
