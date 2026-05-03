@@ -12,7 +12,7 @@ int main()
   int equipmentCount = 5;
   int equipmentId[n] = {1, 2, 3, 4, 5};
   string equipmentName[n] = {"Microscope", "Oscilloscope", "BunsenBurner", "Voltmeter", "Centrifuge"};
-  string equipmentCat[n] = {"Biology\t", "Electronics", "Chemistry", "Electronics", "Biology\t"};
+  string equipmentCat[n] = {"Biology", "Electronics", "Chemistry", "Electronics", "Biology"};
   int equipmentQty[n] = {5, 3, 8, 6, 2};
   int equipmentAvail[n] = {5, 3, 8, 6, 2};
   string equipmentCond[n] = {"Good", "Good", "Fair", "Good", "Fair"};
